@@ -1,7 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block main %}
+{% block title %}
+{{product.label}}
+{% endblock %}
 
+{% block main %}
 
 
 <h1>{{product.label}}</h1>
@@ -14,8 +17,8 @@
 
 <p>{{product.description}}</p>
 
-<p>{{product.price}} € HT</p>
-<p>{{product.prixTTC}} € TTC</p>
+<p>{{ product.price }} € HT</p>
+<p>{{ product.prixTTC }} € TTC</p>
 
 <div class="row mt-3">
 

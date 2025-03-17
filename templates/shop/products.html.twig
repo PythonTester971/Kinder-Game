@@ -1,5 +1,9 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}
+All Games
+{% endblock %}
+
 {% block main %}
 
 <div class="row mt-3">
@@ -18,6 +22,15 @@
   </div>
 
   {% endfor %}
+
+  <div class="d-flex">
+    {% if page > 1 %}
+    <a href="{{ path('shop_products', { page: page - 1 })  }}" class="btn btn-secondary">Page précédente</a>
+    {% endif %}
+    {% if page < maxPages %} <a href="{{ path('shop_products', { page: page + 1 })  }}" class="btn btn-secondary">Page
+      suivante</a>
+      {% endif %}
+  </div>
 
 </div>
 
