@@ -14,7 +14,12 @@ All Games
     <div class="card">
       <img src="{{ product.media }}" class="card-img-top img-card" alt="...">
       <div class="card-body">
-        <h5 class="card-title">{{ product.label }}</h5>
+        <h5 class="card-title d-inline">{{ product.label }}</h5>
+        {% if product.isReduced == 1 %}
+
+        <p class="text-danger fw-bold d-inline">PROMO</p>
+
+        {% endif %}
         <p class="card-text">{{ product.description }}</p>
         <a href="{{path('shop_item',{item: product.label})}}" class="btn btn-primary">Voir le jeu</a>
       </div>
@@ -25,9 +30,10 @@ All Games
 
   <div class="d-flex">
     {% if page > 1 %}
-    <a href="{{ path('shop_products', { page: page - 1 })  }}" class="btn btn-secondary">Page précédente</a>
+    <a href="{{ path('shop_products', { page: page - 1 })  }}" class="btn btn-secondary mt-3">Page précédente</a>
     {% endif %}
-    {% if page < maxPages %} <a href="{{ path('shop_products', { page: page + 1 })  }}" class="btn btn-secondary">Page
+    {% if page < maxPages %} <a href="{{ path('shop_products', { page: page + 1 })  }}" class="btn btn-secondary mt-3">
+      Page
       suivante</a>
       {% endif %}
   </div>

@@ -17,8 +17,41 @@
 
 <p>{{product.description}}</p>
 
+
+{% if product.isReduced == 1 %}
+
+<p class="text-decoration-line-through">{{ product.price }} € HT</p>
+
+<p class="text-decoration-line-through">{{ product.prixTTC }} € TTC</p>
+
+<p class="text-danger fw-bold fs-1">Promotion : {{ product.reducedPrice }} €</p>
+
+
+{% else %}
+
 <p>{{ product.price }} € HT</p>
+
 <p>{{ product.prixTTC }} € TTC</p>
+
+{% endif %}
+
+{# <p class="text-danger fw-bold fs-1">Promotion : {{ product.reducedPrice }} €</p>
+
+{% elseif product.category.label == "Plateforme" %}
+
+<p>{{ product.price*1.1 }} € TTC</p>
+
+{% else %}
+
+<p>{{ product.prixTTC }} € TTC</p>
+
+{% endif %} #}
+
+
+
+
+
+
 
 <div class="row mt-3">
 
@@ -28,7 +61,12 @@
     <div class="card">
       <img src="{{ similar.media }}" class="card-img-top img-card" alt="...">
       <div class="card-body">
-        <h5 class="card-title">{{ similar.label }}</h5>
+        <h5 class="card-title d-inline">{{ similar.label }}</h5>
+        {% if similar.isReduced == 1 %}
+
+        <p class="text-danger fw-bold d-inline">PROMO</p>
+
+        {% endif %}
         <p class="card-text">{{ similar.description }}</p>
         <a href="{{path('shop_item',{item: similar.label})}}" class="btn btn-primary">Voir le jeu</a>
       </div>

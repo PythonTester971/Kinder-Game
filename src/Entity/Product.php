@@ -29,7 +29,10 @@ class Product
     #[ORM\ManyToOne(inversedBy: 'products')]
     private ?Category $category = null;
 
-   
+    #[ORM\Column]
+    private ?bool $isReduced = null;
+
+
 
     public function getId(): ?int
     {
@@ -101,4 +104,24 @@ class Product
         return $this->price * 1.2;
     }
 
+    public function isReduced(): ?bool
+    {
+        return $this->isReduced;
+    }
+
+    public function setIsReduced(bool $isReduced): static
+    {
+        $this->isReduced = $isReduced;
+
+        return $this;
+    }
+
+    public function reducedPrice()
+
+    {
+        if ($this->isReduced == 1) {
+
+            return $this->price * 0.9;
+        }
+    }
 }

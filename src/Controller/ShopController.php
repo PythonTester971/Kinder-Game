@@ -87,10 +87,8 @@ final class ShopController extends AbstractController
     }
 
     #[Route('/category/{category}', name: 'shop_category')]
-    public function category(
-        string $category,
-        ProductRepository $productRepository
-    ): Response {
+    public function category(string $category, ProductRepository $productRepository): Response
+    {
 
         $productsByCategory = $productRepository->findBy(['category' => $category]);
 
