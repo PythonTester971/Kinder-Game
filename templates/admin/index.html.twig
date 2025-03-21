@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AdminController!{% endblock %}
+
+{% block main %}
+
+<h1>Accès au tableau de bord administrateur</h1>
+
+
+<button type="button" class="btn btn-info"><a href="{{ path('admin_category_liste')}}"
+    class="text-decoration-none text-black">Agir
+    sur les
+    catégories</a></button><br>
+<button type="button" class="btn btn-info mt-3"><a href="{{ path('admin_game_liste')}}"
+    class="text-decoration-none text-black">Agir sur
+    les jeux</a></button>
+{% endblock %}

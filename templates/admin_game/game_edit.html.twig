@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+Edit game
+{% endblock %}
+
+{% block main %}
+
+<h1>Modifier le jeu {{game.label}}</h1>
+
+{{ form_start(form) }}
+
+{{ form_end(form) }}
+
+<a href="{{ path('admin_game_liste') }}">Retour à la liste</a>
+
+{% endblock %}
