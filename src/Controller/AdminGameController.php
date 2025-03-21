@@ -56,6 +56,7 @@ final class AdminGameController extends AbstractController
         ]);
     }
 
+
     #[Route('admin/game_remove/{id}', name: 'admin_remove_game')]
     public function remove(int $id, ProductRepository $productRepository, EntityManagerInterface $em)
     {
