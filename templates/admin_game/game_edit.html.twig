@@ -1,17 +1,19 @@
-{% extends "base.html.twig" %}
+{% extends "base_admin.html.twig" %}
 
 {% block title %}
 Edit game
 {% endblock %}
 
-{% block main %}
+{% block div %}
 
-<h1>Modifier le jeu {{game.label}}</h1>
+<h1 class="mb-3">Modifier le jeu {{game.label}}</h1>
+
+<a class="btn btn-outline-info mb-3" href="{{ path('admin_game_liste') }}">Retour à la liste</a>
 
 {{ form_start(form) }}
 
 {{ form_end(form) }}
 
-<a href="{{ path('admin_game_liste') }}">Retour à la liste</a>
+
 
 {% endblock %}

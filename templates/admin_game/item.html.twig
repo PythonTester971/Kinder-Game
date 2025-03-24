@@ -1,18 +1,18 @@
-{% extends "base.html.twig" %}
+{% extends "base_admin.html.twig" %}
 
 {% block title %}
 Jeu
 {% endblock %}
 
-{% block main %}
-<h1>{{ game.label }}</h1>
+{% block div %}
+<h1 class="mb-3">{{ game.label }}</h1>
 
-<a href="{{ path('admin_game_liste') }}">Retour à la liste</a>
+<a class="btn btn-outline-info mb-3" href="{{ path('admin_game_liste') }}">Retour à la liste</a>
 
 <table class="table">
   <thead>
-    <tr>
-      <th scope="col">#</th>
+    <tr class="text-center">
+      {# <th scope="col">#</th> #}
       <th scope="col">Titre</th>
       <th scope="col">Description</th>
       <th scope="col">Prix</th>
@@ -22,10 +22,10 @@ Jeu
   </thead>
   <tbody>
     <tr>
-      <th scope="row">{{game.id}}</th>
+      {# <th scope="row">{{game.id}}</th> #}
       <td>{{game.label}}</td>
       <td>{{game.description}}</td>
-      <td>{{game.price}}</td>
+      <td>{{game.price}} €</td>
       <td>{{game.category.label}}</td>
       {% if game.isReduced == 0 %}
       <td>NON</td>

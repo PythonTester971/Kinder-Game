@@ -1,18 +1,23 @@
-{% extends 'base.html.twig' %}
+{% extends 'base_admin.html.twig' %}
 
 {% block title %}Game board{% endblock %}
 
-{% block main %}
 
 
-<h1>Liste des jeux du site</h1>
-<a href="{{ path('app_admin') }}">Retour à l'admin</a>
+{% block div %}
 
-<table class="table table-striped mt-3">
+<h1 class="mb-3">Liste des jeux du site</h1>
+
+<div class="d-flex justify-content-evenly">
+    <a class="btn btn-outline-info" href="{{ path('app_admin') }}">Retour à l'admin</a>
+    <a class="btn btn-outline-info" href="{{path('admin_add_game')}}">Créer un jeu</a>
+</div>
+
+<table class="table table-hover mt-3">
 
     <thead>
-        <tr>
-            <th scope="col">#</th>
+        <tr class="text-center">
+            {# <th scope="col">#</th> #}
             <th scope="col">Nom du jeu</th>
             <th scope="col">Actions</th>
         </tr>
@@ -21,11 +26,11 @@
         {% for game in games %}
 
         <tr>
-            <td scope="row">{{ game.id }}</td>
+            {# <td scope="row">{{ game.id }}</td> #}
             <td scope="row">{{ game.label }}
             </td>
-            <td><a href="{{ path('admin_game_item',{ id: game.id } )}}" class="btn btn-outline-success me-2"><i
-                        class="bi bi-eye-fill"></i></a>
+            <td class="text-center"><a href="{{ path('admin_game_item',{ id: game.id } )}}"
+                    class="btn btn-outline-success me-2"><i class="bi bi-eye-fill"></i></a>
                 <a href="{{ path('admin_edit_game', { id: game.id })}}" class="btn btn-outline-primary me-2"><i
                         class="bi bi-pencil-square"></i>
                 </a>
@@ -60,9 +65,7 @@
         {% endfor %}
 
     </tbody>
-    <a href="{{path('admin_add_game')}}">Créer un jeu</a>
+
 </table>
-
-
 
 {% endblock %}

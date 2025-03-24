@@ -11,7 +11,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 
 
-#[Route('/shop')]
+
 final class ShopController extends AbstractController
 {
     #[Route('', name: 'shop_index')]

@@ -1,4 +1,4 @@
-{% extends "base.html.twig" %}
+{% extends "base_admin.html.twig" %}
 
 {% block title %}
 
@@ -6,12 +6,18 @@ Category Creation
 
 {% endblock %}
 
-{% block main %}
+
+
+{% block div %}
+
+<h1>Création de catégorie</h1>
+
+<a class="btn btn-outline-info mb-3" href="{{ path('admin_category_liste') }}">Retour à la liste</a>
 
 {{ form_start(form)}}
 
 {{ form_end(form)}}
 
-<a href="{{ path('admin_category_liste') }}">Retour à la liste</a>
+
 
 {% endblock %}

@@ -1,12 +1,14 @@
-{% extends "base.html.twig" %}
+{% extends "base_admin.html.twig" %}
 
 {% block title %}
 Category
 {% endblock %}
 
-{% block main %}
+{% block div %}
+
 <h1>{{ category.label }}</h1>
-<a href="{{ path('admin_category_liste') }}">Retour à la liste</a>
+
+<a class="btn btn-outline-info mb-3" href="{{ path('admin_category_liste') }}">Retour à la liste</a>
 
 <p>Couleur de la catégorie: {{ category.color}}</p>
 
