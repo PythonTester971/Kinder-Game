@@ -12,9 +12,10 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
+#[Route('/admin')]
 final class AdminCategoryController extends AbstractController
 {
-    #[Route('/admin/category/liste', name: 'admin_category_liste')]
+    #[Route('/category/liste', name: 'admin_category_liste')]
     public function liste(CategoryRepository $categoryRepository): Response
     {
 
@@ -27,7 +28,7 @@ final class AdminCategoryController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/category/{id}', name: 'admin_category_item')]
+    #[Route('/category/{id}', name: 'admin_category_item')]
     public function show(CategoryRepository $categoryRepository, int $id, ProductRepository $productRepository): Response
     {
         $category = $categoryRepository->find($id);
@@ -46,7 +47,7 @@ final class AdminCategoryController extends AbstractController
         }
     }
 
-    #[Route('/admin/add_category', name: 'admin_category_add')]
+    #[Route('/add_category', name: 'admin_category_add')]
     public function add(EntityManagerInterface $em, Request $request)
     {
 
@@ -68,7 +69,7 @@ final class AdminCategoryController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/edit_category/{id}', name: 'admin_category_edit')]
+    #[Route('/edit_category/{id}', name: 'admin_category_edit')]
     public function edit($id, CategoryRepository $categoryRepository, EntityManagerInterface $em, Request $request)
     {
 
@@ -92,7 +93,7 @@ final class AdminCategoryController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/rem_category/{id}', name: 'admin_category_rm')]
+    #[Route('/rem_category/{id}', name: 'admin_category_rm')]
     public function remove($id, CategoryRepository $categoryRepository, EntityManagerInterface $em)
     {
 
