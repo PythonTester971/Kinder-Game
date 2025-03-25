@@ -21,10 +21,10 @@ Jeu
     </tr>
   </thead>
   <tbody>
-    <tr>
+    <tr class="text-center">
       {# <th scope="row">{{game.id}}</th> #}
       <td>{{game.label}}</td>
-      <td>{{game.description}}</td>
+      <td>{{game.description|slice(0,25)}}...</td>
       <td>{{game.price}} €</td>
       <td>{{game.category.label}}</td>
       {% if game.isReduced == 0 %}

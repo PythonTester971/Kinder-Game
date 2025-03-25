@@ -1,0 +1,146 @@
+{% extends "base_admin.html.twig" %}
+
+{% block div %}
+
+{{ coucou()}}
+
+<dl>
+    {# Rien à faire#}
+    {# Juste pour vous montrer que "join" permet de transformer#}
+    {# un tableau en string en concaténant ses éléments #}
+    {% set demoJoin = ['je', 'suis', 'un', 'tableau'] %}
+    <dt>je, suis, un, tableau</dt>
+    <dd>{{ demoJoin|join(', ') }}</dd>
+
+    {% set exoNomFamille = "Durand" %}
+    <dt>DURAND</dt>
+    <dd>{{ exoNomFamille|lower|upper }}</dd>
+
+    {% set exoPrenom = "charlotte" %}
+    <dt>Charlotte</dt>
+    <dd>{{ exoPrenom|capitalize }}</dd>
+
+    {% set exoChut = "MOINS FORT !!" %}
+    <dt>moins fort !!</dt>
+    <dd>{{ exoChut|lower }}</dd>
+
+    {% set exoInitial = "Diana" %}
+    <dt>Lady D.</dt>
+    <dd>Lady {{ exoInitial|slice(0,1) }}.</dd>
+
+    {% set exoToutrond = 99.95 %}
+    <dt>100</dt>
+    <dd>{{ exoToutrond|round|join(', ') }}</dd>
+
+    {% set exomaintenant = 'now' %}
+    <dt>25/03/2024 (la date du jour)</dt>
+    <dd>{{ exomaintenant|date("d/m/Y") }} (la date du jour)</dd>
+
+    {% set exoHtml = "<h3>Je suis un vrai titre !</h3>" %}
+    <dt>
+        <h3>Je suis un vrai titre !</h3>
+    </dt>
+    <dd>{{ exoHtml|raw }}</dd>
+
+    {% set mots = 'feu eau terre vent' %}
+    <dt>
+        <ul>
+            <li>feu</li>
+            <li>eau</li>
+            <li>terre</li>
+            <li>vent</li>
+        </ul>
+
+    </dt>
+    <dd>
+        <ul>
+            {% for mot in mots|split(' ') %}
+            <li>{{ mot }}</li>
+            {% endfor %}
+        </ul>
+    </dd>
+
+    {% set exoTri = [33, 5, 9, 4, 5, 3, 2] %}
+    <dt>2, 3, 4, 5, 5, 9, 33</dt>
+    <dd>{{ exoTri|sort|join(', ') }}</dd>
+
+    {% set exoRebours = [1, 2, 3, 4, 5] %}
+    <dt>5, 4, 3, 2, 1</dt>
+    <dd>{{ exoRebours|reverse|join(', ') }}</dd>
+
+    {% set exoCharlie = ['Pas charlie', 'Toujours pas charlie', 'peut être charlie', 'CHARLIE', 'nan !', 'essaye encore
+    !'] %}
+    <dt>CHARLIE</dt>
+    <dd>{{ exoCharlie|find(v => v == 'CHARLIE')|join(', ') }}</dd>
+
+    {% set exocoucou = ['hello', 'guten tag', 'privyet', 'plop', 'coucou', 'bonjour', 'hi'] %}
+    <dt>plop, coucou</dt>
+    <dd>{{ exocoucou|slice(3,2)|join(', ') }}</dd>
+
+    {% set exoplop = [1, -5, 58, -11, -869, 999, 2] %}
+    <dt>1, 58, 999, 2</dt>
+    <dd>{{ exoplop|filter(v => v > 0)|join(', ') }}</dd>
+
+    {% set exoTriHard = [
+    {
+    name: 'Dorothée',
+    age: 50,
+    },
+    {
+    name: 'Bianca',
+    age: 19,
+    },
+    {
+    name: 'Charlène',
+    age: 29,
+    },
+    {
+    name: 'Arthur',
+    age: 15,
+    }
+    ] %}
+    <dt>
+        <ul>
+            <li>Arthur</li>
+            <li>Bianca</li>
+            <li>Charlène</li>
+            <li>Dorothée</li>
+        </ul>
+    </dt>
+    <dd>
+        <ul>
+            {% for person in exoTriHard|sort((a, b) => a.age <=> b.age)%}
+                <li>{{ person.name }}</li>
+                {% endfor %}
+        </ul>
+    </dd>
+
+    {% set exoHard = [1, 2, 3, 4, 5, 6, 7, 8, 9] %}
+    <dt>2, 4, 6, 8, 10, 12, 14, 16, 18</dt>
+    <dd>{{ exoHard|map(exo => exo*2)|join(', ') }}</dd>
+
+    {% set exoSomme = [5, 5, 10, 10] %}
+    <dt>30</dt>
+    <dd>{{ exoSomme|join('') }}</dd>
+
+    {# // Filtre à créer soi même ! #}
+    {% set exoSenpai = 'notice me senpai' %}
+    <dt>!!!NOTICE ME SENPAI!!!</dt>
+    <dd>{{ exoSenpai|notice }}</dd>
+
+    {# // Filtre à créer soi même ! #}
+    {% set exoArgent = 99.99 %}
+    <dt>99,99 €</dt>
+    <dd>{{ exoArgent|prix }}</dd>
+
+    {# // Filtre à créer soi même ! #}
+    {% set exolorem = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquid assumenda
+    consectetur ducimus esse harum illo, itaque, iusto laudantium neque nobis obcaecati officiis quae reiciendis
+    reprehenderit, similique sit suscipit unde.' %}
+    <dt>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium...</dt>
+    <dd>{{ exolorem|cut_text }}</dd>
+</dl>
+
+
+
+{% endblock %}

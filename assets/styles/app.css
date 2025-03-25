@@ -7,10 +7,10 @@ body {
 
 main {
     flex: 1;
-    /* background-image: url(../images/kinder_game_bg_img.webp);
+    background-image: url(../images/kinder_game_bg_img.webp);
     background-size: contain;
     background-repeat: no-repeat;
-    background-position: center; */
+    background-position: center;
     color: white;
 }
 
@@ -33,6 +33,7 @@ footer {
 }
 
 .game-img {
+    min-width: auto;
     max-width: 100%;
 }
 
@@ -40,4 +41,8 @@ footer {
     min-width: 100%;
     height: 100vh;
 
+}
+
+#home-screen {
+    background-image: url('/assets/images/kinder_game_bg_img.webp');
 }

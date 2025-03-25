@@ -16,7 +16,7 @@ Game category
       <div class="card-body">
         <h5 class="card-title">{{ product.label }}</h5>
         <p class="card-text">{{ product.description }}</p>
-        <a href="{{path('shop_item',{item: product.label})}}" class="btn btn-primary">Voir le jeu</a>
+        <a href="{{ path('shop_item',{item: product.label}) }}" class="btn btn-primary">Voir le jeu</a>
       </div>
     </div>
   </div>
