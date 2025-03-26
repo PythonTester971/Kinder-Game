@@ -20,7 +20,7 @@ All Games
         <p class="text-danger fw-bold d-inline">PROMO</p>
 
         {% endif %}
-        <p class="card-text">{{ product.description }}</p>
+        <p class="card-text">{{ product.description|cut_text(40) }}</p>
         <a href="{{path('shop_item',{item: product.label})}}" class="btn btn-primary">Voir le jeu</a>
       </div>
     </div>
@@ -28,9 +28,9 @@ All Games
 
   {% endfor %}
 
-  <div class="d-flex">
+  <div class="d-flex justify-content-evenly">
     {% if page > 1 %}
-    <a href="{{ path('shop_products', { page: page - 1 })  }}" class="btn btn-secondary mt-3">Page précédente</a>
+    <a href="{{ path('shop_products', { page: page - 1 })  }}" class="btn btn-secondary mt-3 me-3">Page précédente</a>
     {% endif %}
     {% if page < maxPages %} <a href="{{ path('shop_products', { page: page + 1 })  }}" class="btn btn-secondary mt-3">
       Page

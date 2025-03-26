@@ -40,4 +40,13 @@ class CategoryRepository extends ServiceEntityRepository
     //            ->getOneOrNullResult()
     //        ;
     //    }
+
+    // public function getCategories()
+    // {
+
+    //     return $this->createQueryBuilder('c')
+    //         ->select('c.label')
+    //         ->getQuery()
+    //         ->getOneOrNullResult();
+    // }
 }
