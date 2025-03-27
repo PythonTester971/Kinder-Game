@@ -64,21 +64,12 @@ class ProductRepository extends ServiceEntityRepository
             ->setHint(Paginator::HINT_ENABLE_DISTINCT, false));
     }
 
-    public function countProducts()
+    public function getAveragePrice()
     {
-        return $this->createQueryBuilder('p')
-            //            ->andWhere('p.exampleField = :val')
-            //            ->setParameter('val', $value)
-            ->select('count(p.id) as nb_products')
-            ->getQuery()
-            ->getOneOrNullResult();
-    }
 
-    // public function getMeanPrice()
-    // {
-    //     return $this->createQueryBuilder('p')
-    //         ->select('avg(p.price) as mean_price')
-    //         ->getQuery()
-    //         ->getOneOrNullResult();
-    // }
+        return $this->createQueryBuilder('p')
+            ->select('avg(p.price)')
+            ->getQuery()
+            ->getResult();
+    }
 }

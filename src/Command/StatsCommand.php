@@ -53,6 +53,18 @@ class StatsCommand extends Command
         // }
         $nbUsers = $this->userRepository->count();
         $nbGames = $this->productRepository->count();
+        $allCategories = $this->categoryRepository->findAll();
+        $products = $this->productRepository->findAll();
+
+        $sum = 0;
+
+        foreach ($products as $product) {
+
+            $sum = $sum + $product->getPrice();
+        }
+
+        $avgPrice = $sum / $nbGames;
+
 
 
 
@@ -60,6 +72,25 @@ class StatsCommand extends Command
             'Number of users : ' . $nbUsers,
             'Number of games : ' . $nbGames,
         ]);
+
+        $io->section('List of categories : ');
+
+
+        foreach ($allCategories as $category) {
+
+            $io->writeln(
+
+                $category->getLabel()
+
+            );
+        }
+
+        $io->writeln(' ');
+
+        $io->writeln('<fg=green>Average Price : </>' . round($avgPrice));
+
+
+
 
 
 
