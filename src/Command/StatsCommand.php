@@ -66,8 +66,6 @@ class StatsCommand extends Command
         $avgPrice = $sum / $nbGames;
 
 
-
-
         $io->listing([
             'Number of users : ' . $nbUsers,
             'Number of games : ' . $nbGames,
